@@ -4,27 +4,23 @@ module.exports = {
         es2021: true,
         jest: true
     },
-    extends: [
-        'plugin:react/recommended',
-        'standard-with-typescript'
-    ],
-    overrides: [
-        {
-            files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+    extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:storybook/recommended'],
+    overrides: [{
+        files: ['*.ts', '*.tsx'],
+        // Your TypeScript files extension
 
-            // As mentioned in the comments, you should extend TypeScript plugins here,
-            // instead of extending them outside the `overrides`.
-            // If you don't want to extend any rules, you don't need an `extends` attribute.
-            extends: [
-                'plugin:@typescript-eslint/recommended',
-                'plugin:@typescript-eslint/recommended-requiring-type-checking'
-            ],
-
-            parserOptions: {
-                project: ['./tsconfig.json'] // Specify it only for TypeScript files
-            }
+        // As mentioned in the comments, you should extend TypeScript plugins here,
+        // instead of extending them outside the `overrides`.
+        // If you don't want to extend any rules, you don't need an `extends` attribute.
+        extends: [
+            'plugin:@typescript-eslint/recommended',
+            'plugin:@typescript-eslint/recommended-requiring-type-checking'
+        ],
+        parserOptions: {
+            project: ['./tsconfig.json'] // Specify it only for TypeScript files
         }
-    ],
+    }],
+
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -33,16 +29,14 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next'
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next'],
     rules: {
         'react/jsx-indent': [2, 4],
         '@typescript-eslint/indent': [2, 4],
         indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx', 'ts'] }],
+        'react/jsx-filename-extension': [2, {
+            extensions: ['.js', '.jsx', '.tsx', 'ts']
+        }],
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         'import/no-unresolved': 'off',
@@ -59,8 +53,13 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'quote-props': 'warn',
         'react/jsx-indent-props': [2, 4],
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
-        'max-len': ['error', { ignoreComments: true, code: 110 }]
+        'i18next/no-literal-string': ['error', {
+            markupOnly: true
+        }],
+        'max-len': ['error', {
+            ignoreComments: true,
+            code: 110
+        }]
     },
     globals: {
         __IS_DEV__: true
