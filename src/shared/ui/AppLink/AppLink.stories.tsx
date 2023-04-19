@@ -10,6 +10,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
+
     args: {
         to: '/'
     }
